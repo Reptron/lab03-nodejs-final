@@ -20,8 +20,8 @@ function findByUsername(username, callback) {
     });
 }
 
-function findBySociety(username, callback) {
-    const selectClient = (`SELECT * from account where username like '${society}';`);
+function findBySociety(society, callback) {
+    const selectClient = (`SELECT * from account where society like '${society}';`);
     database.getResult(selectClient, function(err, rows) {
         if (!err) {
             callback(null, rows);
@@ -31,8 +31,8 @@ function findBySociety(username, callback) {
     });
 }
 
-function findByNumclient(username, callback) {
-    const selectClient = (`SELECT * from account where username like '${num_client}';`);
+function findByNumclient(num_client, callback) {
+    const selectClient = (`SELECT * from account where num_client like '${num_client}';`);
     database.getResult(selectClient, function(err, rows) {
         if (!err) {
             callback(null, rows);
@@ -81,7 +81,7 @@ function createAccount(num_client, username, password, callback) {
 
 function createClient(client, callback) {
     //insert client
-    const insertClient = (`INSERT INTO client(society, contact, address, zipcode, city, phone, fax, maxoutstanding) VALUES('${client.society}', '${client.contact}', '${client.address}', '${client.zipcode}', '${client.city}', '${client.phone}', '${client.fax}', ${client.maxoutstanding});`);
+    const insertClient = (`INSERT INTO client(society, contact, addres, zipcode, city, phone, fax, max_outstanding) VALUES('${client.society}', '${client.contact}', '${client.addres}', '${client.zipcode}', '${client.city}', '${client.phone}', '${client.fax}', ${client.max_outstanding});`);
     database.getResult(insertClient, function(err1, result1) {
         if (!err1) {
             //if no error insert their account

@@ -13,10 +13,11 @@ router.get('/api/catalog', productController.getCatalogue);
 router.get('/api/article/:id', (req, res) => {
     console.log(req.params.id)
     catalogServices.searchIDService(req.params.id, function(err, rows) {
-        res.render('article', { product : rows });
+        res.render('article', { product: rows });
+
     });
 });
-//routes for dynamic processing of clients //--------------------------------------------
+//routes for dynamic processing of clients //-----------------------------------------------
 //route for registration
 router.post('/api/register', clientController.registerControl); //route for login
 router.post('/api/login', clientController.loginControl);

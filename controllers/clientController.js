@@ -1,6 +1,6 @@
+const { Client } = require('../models/entities');
 const loginControl = (request, response) => {
     const clientServices = require('../services/clientServices');
-    
     console.log(request.body);
     let username = request.body.username;
     let password = request.body.password;
